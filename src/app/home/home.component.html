@@ -1,0 +1,21 @@
+<h3>
+  Wellcome to MovieData, <br>
+  please log in.
+</h3>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email" value="email">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" matInput placeholder="Pasword" value="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="login()">Log in</button>
+    <button mat-raised-button color="primary" (click)="logout()">Log out</button>
+
+  </form>
+
+
+

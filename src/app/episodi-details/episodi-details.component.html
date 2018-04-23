@@ -1,0 +1,18 @@
+<div *ngIf="episode">
+
+  <h2> Episode {{episode.Name}} Details</h2>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="episode.Name" placeholder="Name"/>
+    </label><br/>
+    <label>Rating:
+      <input [(ngModel)]="episode.Rating" placeholder="Rating"/>
+    </label><br/>
+    <label>Episode Air_Date:
+      <input [(ngModel)]="episode.AirDate" placeholder="Air Date"/>
+    </label><br/>
+    <button mat-raised-button color="primary" (click)="goBack()">go back</button>
+    <button mat-raised-button color="primary" (click)="save()">save changes</button>
+    <button mat-raised-button color="primary" (click)="deleteEpisode()">delete</button>
+
+  </div>

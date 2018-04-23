@@ -1,0 +1,52 @@
+<h4>
+  Search to add a movie, or select one movie of the database
+</h4>
+
+    <input #term type="text" (keyup)="searchTMDB(term.value)">
+
+
+<div *ngIf="showTVSerieList">
+  <p *ngFor="let serie of serieListResult">
+    <img src="{{ serie.poster_path }}" height="200"/><br />
+    Name: {{ serie.name }} <br />
+    Description: {{ serie.overview }}  <br />
+    Rating: {{serie.vote_average}} <br/>
+    Original name: {{serie.original_name}} <br/>
+    <button mat-raised-button color="primary" (click)="getSerieTMDB(serie.id)">More info</button>
+</div>
+<div *ngIf="showTVSerie">
+  <p>
+    <img src="{{ newSerie.Image }}" height="200" width="200"/>
+    Name: {{ newSerie.Title }} <br/>
+    Description: {{ newSerie.Description }}<br/>
+    Number of Seasons: {{newSerie.Seasons.length}} / Number of episodes: {{numepisodes()}} <br/>
+    <button mat-raised-button color="primary" (click)="addNew(newSerie)">ADD</button>
+  </p>
+</div>
+  <div>
+<h1>Series List
+  <a routerLink='/serie-create' class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </a>
+</h1>
+  <div *ngFor="let serie of series">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{serie.Title}}</mat-card-title>
+    
+    <mat-card-subtitle>id: {{ serie.id }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{serie.Image}}" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              {{serie.Description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            
+              <button mat-raised-button color="primary" routerLink="/serie/{{serie.id}}">Details</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+</div>

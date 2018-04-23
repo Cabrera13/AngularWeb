@@ -1,0 +1,66 @@
+<div *ngIf="!serie">
+  <h1>
+    Serie not found
+  </h1>
+  
+</div>
+<div *ngIf="serie">
+    <a routerLink='/serie/{{serie.id}}/season-create' class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+  <h2>{{ serie.Title }} Details</h2>
+
+  <div>
+    
+    <label>
+      <input [(ngModel)]="serie.Title" placeholder="Title"/>
+    </label><br/>
+    <label>Image:
+      <input [(ngModel)]="serie.Image" placeholder="Image"/>
+    </label><br/>
+    <label>Country:
+      <input [(ngModel)]="serie.Country" placeholder="Country"/>
+    </label><br/>
+    <label>Description:
+      <input [(ngModel)]="serie.Description" placeholder="Description"/>
+    </label><br/>
+    <label>First_Episode_Air_Date:
+      <input [(ngModel)]="serie.First_Episode_Air_Date" placeholder="First_Episode_Air_Date"/>
+    </label><br/>
+
+
+  </div>
+  <button mat-raised-button color="primary" (click)="goBack()">go back</button>
+  <button mat-raised-button color="primary" (click)="save()">save changes</button>
+  <button mat-raised-button color="primary" (click)="deleteSerie()">delete</button>
+
+
+
+</div>
+<div>
+    <div *ngFor="let item of seasons">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Season {{item.Number}}</mat-card-title>
+      
+      <mat-card-subtitle>id: {{ serie.id }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{item.Image}}" alt="Photo of the season">
+            <mat-card-content>
+              <p>
+                  First Episode Air Date {{item.First_Episode_Air_Date}}
+                  Last Episode Air Date {{item.Last_Episode_Air_Date}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" routerLink="/serie/{{serie.id}}/season-details/{{item.Number}}">Details</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+</div>
+
+
+<button (click)="goBack()">go back</button>
+<button (click)="deleteSerie()">delete</button>
+

@@ -1,0 +1,41 @@
+<div *ngIf="!season">
+  <h1>
+    Season not found
+  </h1>
+  
+</div>
+<div *ngIf="season">
+    <a routerLink='/serie/{{id}}/{{num}}/episodi-create' class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+  <h2> Season {{season.Number}} Details</h2>
+  <div>
+    <label>Image:
+      <input [(ngModel)]="season.Image" placeholder="Image"/>
+    </label><br/>
+    <label>First Episode Air Date:
+      <input [(ngModel)]="season.First_Episode_Air_Date" placeholder="First_Episode_Air_Date"/>
+    </label><br/>
+    <label>Last Episode Air_Date:
+      <input [(ngModel)]="season.Last_Episode_Air_Date" placeholder="Last_Episode_Air_Date"/>
+    </label><br/>
+
+
+  </div>
+
+  <button mat-raised-button color="primary" (click)="goBack()">go back</button>
+  <button mat-raised-button color="primary" (click)="save()">save changes</button>
+  <button mat-raised-button color="primary" (click)="deleteSeasons()">delete</button>
+</div>
+<div>
+  <div *ngFor="let episode of episodes">
+      <div *ngIf="episode">
+    <a routerLink="./{{episode.Number}}">{{episode.Name}}</a> <br/>
+    Number: {{episode.Number}}<br/>
+    Episode <label *ngIf="!episode.Watched">not</label> watched.
+    Rating: {{episode.Rating}}
+    </div>
+  </div>
+</div>
+
+

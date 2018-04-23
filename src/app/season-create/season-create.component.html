@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Add New Season</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="name">Season number</label>
+                <input type="number" class="form-control" [(ngModel)]="numseason" name="season" required>
+              </div>
+          <label for="name">Image</label>
+          <input type="text" class="form-control" [(ngModel)]="image" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="name">First Episode Air Date</label>
+          <input type="text" class="form-control" [(ngModel)]="first" name="author" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Last Episode Air Date</label>
+          <input type="number" class="form-control" [(ngModel)]="last" name="published_year" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" (click)="addSeason()" routerLink="/series" class="btn btn-success">Save</button>
+          </div>
+
+      </form>
+    </div>
+  </div>
+</div>
