@@ -15,7 +15,7 @@ export class SeasonDetailsComponent implements OnInit {
   season : Season;
   id: number;
   num : number;
-  episodes : Episode[];
+  episodes = [];
 
   constructor(private _data: SeriesDataService,
               private route: ActivatedRoute,
@@ -54,6 +54,10 @@ export class SeasonDetailsComponent implements OnInit {
     console.log(this.season)
   }
   getEpisodes() : void {
-    this._data.getEpisodes(this.id,this.num).subscribe(res => {this.episodes = res[0];});
+    this._data.getEpisodes(this.id,this.num).subscribe(res => 
+      {
+        Object.values(res[0]).map((elem, i)=> {this.episodes.push(elem)})
+      });
+    console.log(this.episodes);
   }
 }

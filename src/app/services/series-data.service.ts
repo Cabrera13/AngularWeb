@@ -31,8 +31,7 @@ export class SeriesDataService {
   }
   */
  getSeries():  Observable<any[]> {
-  return this.af.list(this.auth.usdet()).valueChanges();
-  
+   return this.af.list(this.auth.usdet()).valueChanges();
   }
   
   getSerie(id): Observable<any> {

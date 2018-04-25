@@ -32,7 +32,7 @@
       <div *ngIf="episode">
     <a routerLink="./{{episode.Number}}">{{episode.Name}}</a> <br/>
     Number: {{episode.Number}}<br/>
-    Episode <label *ngIf="!episode.Watched">not</label> watched.
+    Episode watched: {{episode.Watched}}
     Rating: {{episode.Rating}}
     </div>
   </div>

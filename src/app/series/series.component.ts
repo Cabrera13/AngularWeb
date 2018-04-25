@@ -131,13 +131,14 @@ export class SeriesComponent implements OnInit {
   
     addNew(s : Serie) {
       console.log(this.newSerie);
+
       this._data.addFromSearch(s);
     }
 
     numepisodes():number {
       var numEpisodes = 0;
       this.newSerie.Seasons.map((elem, i)=> {
-        elem.Episodes.map((elem, i) => {
+        return elem.Episodes.map((elem, i) => {
           numEpisodes++;
         })
       })
