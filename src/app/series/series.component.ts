@@ -130,8 +130,6 @@ export class SeriesComponent implements OnInit {
   }
   
     addNew(s : Serie) {
-      console.log(this.newSerie);
-
       this._data.addFromSearch(s);
     }
 
